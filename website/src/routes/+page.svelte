@@ -1,6 +1,5 @@
 <script lang="ts">
 	import {
-		faSpotify,
 		faAndroid,
 		faWindows,
 		faApple,
@@ -25,8 +24,8 @@
 
 <svelte:head>
 	<title>Spotube</title>
-	<meta name="description" content="An Open Source Spotify Client for every platform" />
-	<meta name="keywords" content="spotify, client, open source, music, streaming" />
+	<meta name="description" content="An Open Source Music Client for every platform" />
+	<meta name="keywords" content="music, client, open source, music, streaming" />
 	<meta name="author" content="KRTirtho" />
 	<meta name="robots" content="index, follow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +38,7 @@
 			<h1 class="h1">Spotube</h1>
 			<br />
 			<h3 class="h3">
-				An Open Source <Fa class="inline text-[#1DB954]" icon={faSpotify} /> Spotify Client for every
+				An Open Source Music Client for every
 				platform
 				<div class="inline-flex gap-3 items-center">
 					<Fa class="inline text-[#3DDC84]" icon={faAndroid} />
@@ -57,26 +56,26 @@
 				<a href="https://news.ycombinator.com/item?id=39066136" target="_blank">
 					<img src="https://hackerbadge.vercel.app/api?id=39066136" alt="HackerNews" />
 				</a>
-				<a href="https://flathub.org/apps/com.github.KRTirtho.Spotube" target="_blank">
+				<!-- <a href="https://flathub.org/apps/com.github.KRTirtho.Spotube" target="_blank">
 					<img
 						width="160"
 						alt="Download on Flathub"
 						src="https://flathub.org/api/badge?locale=en"
 					/>
-				</a>
+				</a> -->
 			</div>
 		</div>
-		<div class="flex justify-center">
+		<!-- <div class="flex justify-center">
 			<a href="/downloads" class="flex gap-2 btn variant-filled-primary">
 				Download
 				<Download />
 			</a>
-		</div>
+		</div> -->
 	</div>
 
-	<br />
+	<!-- <br />
 	<Ads adSlot={ADS_SLOTS.rootPageDisplay} adFormat="auto" />
-	<br />
+	<br /> -->
 
 	<div class="flex flex-col gap-4">
 		<h2 class="h2">
@@ -114,5 +113,5 @@
 		</div>
 	</div>
 	<br />
-	<Ads adSlot={ADS_SLOTS.rootPageDisplay} adFormat="auto" />
+	<!-- <Ads adSlot={ADS_SLOTS.rootPageDisplay} adFormat="auto" /> -->
 </section>

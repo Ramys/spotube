@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' hide Consumer;
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import 'package:spotube/collections/assets.gen.dart';
@@ -27,6 +27,7 @@ import 'package:spotube/provider/audio_player/audio_player.dart';
 import 'package:spotube/provider/server/active_sourced_track.dart';
 import 'package:spotube/provider/volume_provider.dart';
 import 'package:spotube/services/sourced_track/sources/youtube.dart';
+import 'package:spotube/utils/platform.dart';
 
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -48,7 +49,7 @@ class PlayerView extends HookConsumerWidget {
         ref.watch(audioPlayerProvider.select((s) => s.activeTrack));
     final currentTrack = sourcedCurrentTrack ?? currentActiveTrack;
     final isLocalTrack = currentTrack is LocalTrack;
-    final mediaQuery = MediaQuery.of(context);
+    final mediaQuery = MediaQuery.sizeOf(context);
 
     final shouldHide = useState(true);
 
@@ -101,6 +102,9 @@ class PlayerView extends HookConsumerWidget {
           backgroundColor: Colors.transparent,
           headers: [
             SafeArea(
+              minimum:
+                  kIsMobile ? const EdgeInsets.only(top: 80) : EdgeInsets.zero,
+              bottom: false,
               child: TitleBar(
                 surfaceOpacity: 0,
                 surfaceBlur: 0,
@@ -128,7 +132,7 @@ class PlayerView extends HookConsumerWidget {
                   Tooltip(
                     tooltip: TooltipContainer(
                       child: Text(context.l10n.details),
-                    ),
+                    ).call,
                     child: IconButton.ghost(
                       icon: const Icon(SpotubeIcons.info, size: 18),
                       onPressed: currentTrack == null
